@@ -3,12 +3,12 @@ package raft
 import (
 	"encoding/json"
 	"fmt"
-	"labrpc"
 	"math"
 	"math/rand"
 	"sync"
 	"sync/atomic"
 	"time"
+	"raft/labrpc"
 )
 
 type Raft struct {

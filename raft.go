@@ -3,12 +3,13 @@ package raft
 import (
 	"encoding/json"
 	"fmt"
-	"labrpc"
+
 	"math"
 	"math/rand"
 	"sync"
 	"sync/atomic"
 	"time"
+	"raft/labrpc"
 )
 
 type Raft struct {
@@ -685,7 +686,7 @@ func (rf *Raft) Vote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	*reply = RequestVoteReply{Term: rf.currentTerm, VoteGranted: false}
 
 	if args.Term < rf.currentTerm ||
-		// Has voted in this term already. Note (a).
+	// Has voted in this term already. Note (a).
 		(args.Term == rf.currentTerm && rf.votedFor != none) {
 		// DEBUG.
 		if args.Term == rf.currentTerm && rf.votedFor != none {
