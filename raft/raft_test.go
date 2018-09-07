@@ -148,6 +148,7 @@ func TestVote(t *testing.T) {
 	for i := range testCases {
 		tc := &testCases[i]
 		t.Run(tc.name, func(t *testing.T) {
+			tc.server.startElectionTimer()
 			tc.server.setRoleFuncs()
 			reply := RequestVoteReply{}
 			tc.server.Vote(&tc.args, &reply)
@@ -409,6 +410,7 @@ func TestAppendEntries(t *testing.T) {
 		tc := &testCases[i]
 		t.Run(tc.name, func(t *testing.T) {
 			tc.server.setRoleFuncs()
+			tc.server.startElectionTimer()
 			reply := AppendEntriesReply{}
 			tc.server.AppendEntries(&tc.args, &reply)
 			if reply != tc.expectedReply {
