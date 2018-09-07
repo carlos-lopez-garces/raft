@@ -10,6 +10,7 @@ import (
 	"sync/atomic"
 	"time"
 	"raft/labrpc"
+	"raft/raft"
 )
 
 type Raft struct {
@@ -42,7 +43,7 @@ type Raft struct {
 
 	shutdownCh chan struct{}
 
-	persister *Persister
+	persister *raft.Persister
 }
 
 type ApplyMsg struct {
@@ -52,7 +53,7 @@ type ApplyMsg struct {
 	Snapshot    []byte
 }
 
-func Make(peers []*labrpc.ClientEnd, me int, persister *Persister, appliedEntriesCh chan ApplyMsg) *Raft {
+func Make(peers []*labrpc.ClientEnd, me int, persister *raft.Persister, appliedEntriesCh chan ApplyMsg) *Raft {
 	rf := &Raft{
 		peers:            peers,
 		persister:        persister,
