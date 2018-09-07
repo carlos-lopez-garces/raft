@@ -15,6 +15,14 @@ git clone https://github.com/carlos-lopez-garces/raft.git
 
 This project needs at least Go 1.9
 
+## Running the tests
+
+In the `raft` folder run the following command:
+
+```
+go test ./...
+```
+
 
 ## License
 
