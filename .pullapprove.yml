@@ -1,0 +1,50 @@
+version: 3
+
+# TODO: Add comments once the team settles on a workflow.
+
+pullapprove_conditions:
+  - condition: "'Needs Review' in labels or 'Needs Approach-Only Review' in labels"
+    unmet_status: pending
+    explanation: "Work in progress"
+
+groups:
+  approach_only_review:
+    conditions:
+      - "'Needs Approach-Only Review' in labels"
+    reviews:
+      required: 1
+    reviewers:
+      users:
+        - carlos-lopez-garces
+        - elfrank
+        - dvaldivia
+    
+  full_review:
+    conditions:
+      - "'Needs Review' in labels or 'approach_only_review' in groups.approved"
+    reviews:
+      required: 2
+      request: 1
+      request_order: random
+    reviewers:
+      users:
+        - carlos-lopez-garces
+        - elfrank
+        - dvaldivia
+
+  qa:
+    conditions:
+      - "'full_review' in groups.approved"
+    reviews:
+      required: 1
+      request_order: random
+    reviewers:
+      users:
+        - carlos-lopez-garces
+        - elfrank
+
+notifications:
+  - when: pullapprove.approved
+    comment: |
+      Hey @{{ author }}, your PR has been approved. Great job!
+      Feel free to merge once all checks have passed. Smooches.
