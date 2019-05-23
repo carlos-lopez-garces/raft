@@ -16,7 +16,7 @@ groups:
     reviewers:
       users:
         - carlos-lopez-garces
-        - elfrank
+        - mattsonic
         - dvaldivia
     
   full_review:
@@ -29,7 +29,7 @@ groups:
     reviewers:
       users:
         - carlos-lopez-garces
-        - elfrank
+        - mattsonic
         - dvaldivia
 
   qa:
@@ -41,7 +41,7 @@ groups:
     reviewers:
       users:
         - carlos-lopez-garces
-        - elfrank
+        - mattsonic
 
 notifications:
   - when: pullapprove.approved
