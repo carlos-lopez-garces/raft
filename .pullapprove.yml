@@ -18,6 +18,7 @@ groups:
         - carlos-lopez-garces
         - mattsonic
         - dvaldivia
+        - elfrank
     
   full_review:
     conditions:
@@ -31,6 +32,7 @@ groups:
         - carlos-lopez-garces
         - mattsonic
         - dvaldivia
+        - elfrank
 
   qa:
     conditions:
@@ -41,7 +43,7 @@ groups:
     reviewers:
       users:
         - carlos-lopez-garces
-        - mattsonic
+        - elfrank
 
 notifications:
   - when: pullapprove.approved
