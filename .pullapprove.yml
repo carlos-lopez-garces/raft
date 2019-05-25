@@ -1,18 +1,17 @@
 version: 3
 
 pullapprove_conditions:
-  - condition: "'Needs Review' in labels"
-    unmet_status: pending
-    explanation: "Work in progress"
+- "'Needs Review' in labels"
 
 groups:
   code_review:
+    reviewers:
+      users:
+      - carlos-lopez-garces
+      - mattsonic
+      - elfrank
     reviews:
       required: 2
       request: 1
-      request_order: random
-    reviewers:
-      users:
-        - carlos-lopez-garces
-        - mattsonic
-        - elfrank
+      request_order: shuffle
+      author_value: 0
