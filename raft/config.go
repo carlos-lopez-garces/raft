@@ -36,7 +36,7 @@ type config struct {
 	t         *testing.T
 	net       *labrpc.Network
 	n         int
-	done      int32 // tell internal threads to die
+	done      int32 // tell internal threads   to die
 	rafts     []*Raft
 	applyErr  []string // from apply channel readers
 	connected []bool   // whether each server is on the net
