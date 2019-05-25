@@ -3,26 +3,14 @@ version: 3
 # TODO: Add comments once the team settles on a workflow.
 
 pullapprove_conditions:
-  - condition: "'Needs Review' in labels or 'Needs Approach-Only Review' in labels"
+  - condition: "'Needs Review' in labels"
     unmet_status: pending
     explanation: "Work in progress"
 
 groups:
-  approach_only_review:
+  code_review:
     conditions:
-      - "'Needs Approach-Only Review' in labels"
-    reviews:
-      required: 1
-    reviewers:
-      users:
-        - carlos-lopez-garces
-        - mattsonic
-        - dvaldivia
-        - elfrank
-    
-  full_review:
-    conditions:
-      - "'Needs Review' in labels or 'approach_only_review' in groups.approved"
+      - "'Needs Review' in labels"
     reviews:
       required: 2
       request: 1
