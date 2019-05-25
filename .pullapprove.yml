@@ -9,8 +9,6 @@ pullapprove_conditions:
 
 groups:
   code_review:
-    conditions:
-      - "'Needs Review' in labels"
     reviews:
       required: 2
       request: 1
@@ -24,7 +22,7 @@ groups:
 
   qa:
     conditions:
-      - "'full_review' in groups.approved"
+      - "'code_review' in groups.approved"
     reviews:
       required: 1
       request_order: random
