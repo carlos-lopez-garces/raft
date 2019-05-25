@@ -12,6 +12,4 @@ groups:
       - elfrank
     reviews:
       required: 2
-      request: 1
-      request_order: shuffle
-      author_value: 0
+      request: 2
