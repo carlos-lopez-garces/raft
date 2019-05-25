@@ -38,7 +38,7 @@ type config struct {
 	done      int32 // tell internal threads to die
 	rafts     []*Raft
 	applyErr  []string // from apply channel readers
-	connected []bool   // whether each server is on the net
+	connected []bool   // whether each server    is on the net
 	saved     []*Persister
 	endnames  [][]string    // the port file names each sends to
 	logs      []map[int]int // copy of each server's committed entries
