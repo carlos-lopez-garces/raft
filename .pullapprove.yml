@@ -1,7 +1,5 @@
 version: 3
 
-# TODO: Add comments once the team settles on a workflow.
-
 pullapprove_conditions:
   - condition: "'Needs Review' in labels"
     unmet_status: pending
@@ -19,20 +17,3 @@ groups:
         - mattsonic
         - dvaldivia
         - elfrank
-
-  qa:
-    conditions:
-      - "'code_review' in groups.approved"
-    reviews:
-      required: 1
-      request_order: random
-    reviewers:
-      users:
-        - carlos-lopez-garces
-        - elfrank
-
-notifications:
-  - when: pullapprove.approved
-    comment: |
-      Hey @{{ author }}, your PR has been approved. Great job!
-      Feel free to merge once all checks have passed. Smooches.
